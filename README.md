@@ -1,7 +1,5 @@
 # Rust Starter
 
-## Overview
-
-## Architecture
+## Application Flow
 
 ![Architecture Overview](docs/images/architecture.png)
