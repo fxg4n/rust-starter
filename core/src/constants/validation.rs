@@ -1,0 +1,10 @@
+pub const USERNAME_MIN_LENGTH: usize = 3;
+pub const USERNAME_MAX_LENGTH: usize = 32;
+pub const PASSWORD_MIN_LENGTH: usize = 8;
+pub const PASSWORD_MAX_LENGTH: usize = 128;
+pub const EMAIL_MAX_LENGTH: usize = 254;
+pub const NAME_MAX_LENGTH: usize = 100;
+pub const DESCRIPTION_MAX_LENGTH: usize = 1000;
+pub const TITLE_MAX_LENGTH: usize = 200;
+pub const MAX_TAGS: usize = 10;
+pub const TAG_MAX_LENGTH: usize = 30;

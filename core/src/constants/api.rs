@@ -1,0 +1,12 @@
+pub const API_VERSION: &str = "v1";
+pub const API_KEY_HEADER: &str = "X-API-Key";
+pub const ACCESS_TOKEN_DURATION: i64 = 3600;
+pub const REFRESH_TOKEN_DURATION: i64 = 2592000;
+pub const RATE_LIMIT_WINDOW: u64 = 60;
+pub const RATE_LIMIT_MAX_REQUESTS: u32 = 100;
+pub const MAX_PAYLOAD_SIZE: usize = 5_000_000;
+pub const DEFAULT_PAGE_SIZE: u32 = 20;
+pub const MAX_PAGE_SIZE: u32 = 100;
+pub const REQUEST_TIMEOUT: u64 = 30;
+pub const CORS_MAX_AGE: u64 = 86400;
+pub const MAX_HEADER_SIZE: usize = 8192;

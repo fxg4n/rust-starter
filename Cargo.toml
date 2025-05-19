@@ -1,0 +1,72 @@
+[workspace]
+members = [
+    "app",
+    "config",
+    "contexts",
+    "core",
+    "drivers",
+    "shared",
+    "graphql",
+    "http",
+    "ws"
+]
+
+[workspace.dependencies]
+# Web framework
+axum = "0.8.4"
+tower = "0.5.2"
+tower-http = { version = "0.6.2", features = ["full"] }
+tokio = { version = "1.45.0", features = ["full"] }
+hyper = { version = "1.6.0", features = ["full"] }
+
+# GraphQL
+async-graphql = { version = "7.0.16", features = ["chrono", "decimal"] }
+async-graphql-axum = "7.0.16"
+
+# Database
+sqlx = { version = "0.8.5", features = ["runtime-tokio-rustls", "postgres", "chrono", "json", "migrate", "macros"] }
+deadpool-postgres = "0.14.1"
+refinery = { version = "0.8.16", features = ["tokio-postgres"] }
+
+# Serialization
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+regex = "1.11.1"
+rand = "0.9.1"
+
+# Error handling
+thiserror = "2.0.12"
+anyhow = "1.0.98"
+
+# Logging and metrics
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter", "json", "time"] }
+metrics = "0.24.2"
+metrics-exporter-prometheus = "0.17.0"
+
+# Validation and business rules
+validator = { version = "0.20.0", features = ["derive"] }
+
+# Authentication and security
+jsonwebtoken = "9.3.1"
+argon2 = "0.5.3"
+cuid = "1.3.3"
+chrono = { version = "0.4.41", features = ["serde"] }
+
+# Configuration
+config = "0.15.11"
+dotenv = "0.15.0"
+
+# Async utilities
+futures = "0.3.31"
+async-trait = "0.1.88"
+
+# Email
+lettre = { version = "0.11", features = ["tokio1", "tokio1-native-tls", "builder"] }
+
+# Development tools
+[workspace.dev-dependencies]
+mockall = "0.13.1"
+test-case = "3.3.1"
+wiremock = "0.6.3"
+fake = { version = "4.3.0", features = ["chrono"] }
