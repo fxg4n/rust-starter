@@ -1,3 +1,8 @@
+# Rust Starter
+
+## Overview
+
+```mermaid
 flowchart TD
   %% Interface Layer
   subgraph "Client Interfaces"
