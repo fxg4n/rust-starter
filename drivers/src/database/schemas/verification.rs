@@ -7,8 +7,9 @@ pub struct Verification {
     pub id: String,
     pub user_id: String,
     pub token: String,
-    pub expired_at: DateTime<Utc>,
-    pub verified: bool,
+    pub verification_type: String,
+    pub expires_at: DateTime<Utc>,
+    pub verified_at: Option<DateTime<Utc>>,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
