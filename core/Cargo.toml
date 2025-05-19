@@ -1,0 +1,38 @@
+[package]
+name = "core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Local dependencies
+config = { path = "../config" }
+drivers = { path = "../drivers" }
+
+# Web framework
+axum = { workspace = true }
+hyper = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+
+# Authentication and security
+jsonwebtoken = { workspace = true }
+argon2 = { workspace = true }
+cuid = { workspace = true }
+
+# Validation
+validator = { workspace = true }
+regex = { workspace = true }
+
+# Date and time
+chrono = { workspace = true }
+
+# Async
+async-trait = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
