@@ -1,3 +1,3 @@
 ## System Flow
 
-![Architecture Overview](docs/images/architecture.png)
+![System Flow](docs/images/system-flow.png)
