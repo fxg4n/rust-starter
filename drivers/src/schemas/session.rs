@@ -1,8 +1,7 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
-use sqlx::FromRow;
 
-#[derive(Debug, Clone, Serialize, Deserialize, FromRow)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Session {
     pub id: String,
     pub user_id: String,
@@ -12,8 +11,17 @@ pub struct Session {
     pub user_agent: Option<String>,
     pub device_fingerprint: Option<String>,
     pub location: Option<String>,
-    pub status: String,
+    pub status: SessionStatus,
     pub expires_at: DateTime<Utc>,
+    pub revoked_at: Option<DateTime<Utc>>,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, sqlx::Type)]
+#[sqlx(type_name = "TEXT", rename_all = "lowercase")]
+pub enum SessionStatus {
+    Active,
+    Revoked,
+    Expired,
 }
