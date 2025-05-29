@@ -1,0 +1,38 @@
+[package]
+name = "contexts"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Local dependencies
+config = { path = "../config" }
+core = { path = "../core" }
+drivers = { path = "../drivers" }
+shared = { path = "../shared" }
+
+# Async
+tokio = { workspace = true }
+async-trait = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Database
+sqlx = { workspace = true }
+deadpool-postgres = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Date and time
+chrono = { workspace = true }
+
+[dev-dependencies]
+mockall = { workspace = true }
+test-case = { workspace = true }
+fake = { workspace = true }

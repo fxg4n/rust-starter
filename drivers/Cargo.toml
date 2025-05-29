@@ -34,3 +34,9 @@ lettre = { workspace = true }
 
 # Utils
 cuid = { workspace = true }
+
+
+# AWS
+aws-config = { workspace = true }
+aws-sdk-s3 = { workspace = true }
+aws-sdk-sns = { workspace = true }

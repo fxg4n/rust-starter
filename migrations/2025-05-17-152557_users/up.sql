@@ -73,7 +73,7 @@ CREATE TABLE password_audit (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE user_profiles (
+CREATE TABLE profiles (
     id TEXT PRIMARY KEY,
     user_id TEXT NOT NULL UNIQUE,
     full_name TEXT,
@@ -105,15 +105,15 @@ CREATE TRIGGER set_updated_at_verifications
 BEFORE UPDATE ON verifications
 FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
-CREATE TRIGGER set_updated_at_user_profiles
-BEFORE UPDATE ON user_profiles
+CREATE TRIGGER set_updated_at_profiles
+BEFORE UPDATE ON profiles
 FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
 CREATE UNIQUE INDEX idx_users_username ON users(username);
 CREATE UNIQUE INDEX idx_users_email ON users(email);
 
-CREATE INDEX idx_user_profiles_user_id ON user_profiles(user_id);
-CREATE INDEX idx_user_profiles_fullname ON user_profiles(full_name);
+CREATE INDEX idx_profiles_user_id ON profiles(user_id);
+CREATE INDEX idx_profiles_fullname ON profiles(full_name);
 
 CREATE INDEX idx_sessions_user_id ON sessions(user_id);
 CREATE INDEX idx_auth_events_user_id ON auth_events(user_id);
