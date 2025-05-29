@@ -1,3 +1,3 @@
-pub mod connection;
-pub mod migrations;
-pub mod schemas;
+pub mod postgres;
+pub mod clickhouse;
+pub mod redis;

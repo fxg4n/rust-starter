@@ -70,3 +70,8 @@ mockall = "0.13.1"
 test-case = "3.3.1"
 wiremock = "0.6.3"
 fake = { version = "4.3.0", features = ["chrono"] }
+
+# AWS
+aws-config = "1.6.3"
+aws-sdk-s3 = "1.89.0"
+aws-sdk-sns = "1.72.0"

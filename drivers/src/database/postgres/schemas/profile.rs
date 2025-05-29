@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use sqlx::types::JsonValue;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct UserProfile {
+pub struct Profile {
     pub id: String,
     pub user_id: String,
     pub full_name: Option<String>,
