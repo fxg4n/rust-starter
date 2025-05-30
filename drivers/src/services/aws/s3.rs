@@ -5,10 +5,13 @@ use crate::config::services::AwsConfig;
 
 pub struct S3Client {
     client: Client,
+    config: AwsConfig,
 }
 
 impl S3Client {
-    pub async fn new(config: &AwsConfig) -> Result<Self> {
+    pub async fn new() -> Result<Self> {
+        let config = AwsConfig::from_env()?;
+        
         let aws_config = aws_config::from_env()
             .credentials_provider(aws_config::Credentials::new(
                 &config.access_key_id,
@@ -25,10 +28,16 @@ impl S3Client {
         
         Ok(Self {
             client: s3_client,
+            config,
         })
     }
 
-    pub async fn upload_object(&self, bucket: &str, key: &str, data: Vec<u8>) -> Result<String> {
+    fn get_bucket(&self, bucket: Option<&str>) -> &str {
+        bucket.unwrap_or(&self.config.s3_bucket)
+    }
+
+    pub async fn upload_object(&self, key: &str, data: Vec<u8>, bucket: Option<&str>) -> Result<String> {
+        let bucket = self.get_bucket(bucket);
         self.client
             .put_object()
             .bucket(bucket)
@@ -40,7 +49,8 @@ impl S3Client {
         Ok(format!("s3://{}/{}", bucket, key))
     }
 
-    pub async fn download_object(&self, bucket: &str, key: &str) -> Result<Vec<u8>> {
+    pub async fn download_object(&self, key: &str, bucket: Option<&str>) -> Result<Vec<u8>> {
+        let bucket = self.get_bucket(bucket);
         let response = self.client
             .get_object()
             .bucket(bucket)
@@ -51,7 +61,8 @@ impl S3Client {
         Ok(response.body.collect().await?.to_vec())
     }
 
-    pub async fn delete_object(&self, bucket: &str, key: &str) -> Result<()> {
+    pub async fn delete_object(&self, key: &str, bucket: Option<&str>) -> Result<()> {
+        let bucket = self.get_bucket(bucket);
         self.client
             .delete_object()
             .bucket(bucket)
@@ -62,7 +73,8 @@ impl S3Client {
         Ok(())
     }
 
-    pub async fn get_object_url(&self, bucket: &str, key: &str) -> Result<String> {
+    pub async fn get_object_url(&self, key: &str, bucket: Option<&str>) -> Result<String> {
+        let bucket = self.get_bucket(bucket);
         let presigned_url = self.client
             .get_object()
             .bucket(bucket)

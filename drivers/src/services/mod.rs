@@ -1,2 +1,2 @@
 pub mod aws;
-pub mod smtp_mailer;
+pub mod smtp;
