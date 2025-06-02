@@ -1,5 +1,6 @@
-pub const API_VERSION: &str = "v1";
-pub const API_KEY_HEADER: &str = "X-API-Key";
+pub const DEFAULT_ENDPOINT_PREFIX: &str = "/api/v1";
+pub const DEFAULT_ENVIRONTMENT: &str = "development";
+pub const DEFAULT_TIMEZONE: &str = "Asia/Jakarta";
 pub const ACCESS_TOKEN_DURATION: i64 = 3600;
 pub const REFRESH_TOKEN_DURATION: i64 = 2592000;
 pub const RATE_LIMIT_WINDOW: u64 = 60;

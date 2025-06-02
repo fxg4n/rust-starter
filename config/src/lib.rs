@@ -1,7 +1,6 @@
 pub mod app;
 pub mod database;
 pub mod services;
-pub mod env;
 pub mod redis;
 pub mod jwt;
 

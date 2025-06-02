@@ -10,3 +10,4 @@ serde = { workspace = true }
 
 # Local dependencies
 core = { path = "../core" }
+shared = { path = "../shared" }
